@@ -1,5 +1,7 @@
 package lab1;
 
+import java.util.Objects;
+
 public class BinaryOperation implements Expression {
     public enum Operation {
         PLUS('+'),
@@ -61,5 +63,11 @@ public class BinaryOperation implements Expression {
     @Override
     public String toString(){
         return "(" + left + " "+ getOperation().getSymbol()+ " " + right +")";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        BinaryOperation other = (BinaryOperation) obj;
+        return Objects.equals(other.toString(), this.toString());
     }
 }

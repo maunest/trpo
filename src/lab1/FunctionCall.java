@@ -1,5 +1,7 @@
 package lab1;
 
+import java.util.Objects;
+
 public class FunctionCall implements Expression {
     private String name;
     private Expression arg;
@@ -39,5 +41,18 @@ public class FunctionCall implements Expression {
     @Override
     public String toString(){
         return name +"(" + arg +")";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        FunctionCall other = (FunctionCall) obj;
+        return Objects.equals(name, other.name) &&
+                Objects.equals(arg, other.arg);
     }
 }
